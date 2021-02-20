@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Profile - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    />
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css" />
+    <link rel="stylesheet" href="/assets/css/untitled.css" />
+    <link rel="stylesheet" href="/assets/css/dataTable.min.css" />
+    <script src="/assets/client/filesaver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  </head>
+
+  <body id="page-top" style="background-color: #ffffff">
+    <div id="wrapper">
+      <div
+        class="d-flex flex-column"
+        id="content-wrapper"
+        style="background-color: #f8f9fc"
+      >
+      <div id="lodingGif" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+          <lottie-player src="https://assets6.lottiefiles.com/datafiles/B7iUeqzD4KNoXPu/data.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+      </div>
+        <div  id="contentDiv" style="display:none">
+          <div class="container-fluid" style="margin-top: 30px">
+            <div
+              class="d-xl-flex justify-content-xl-start align-items-xl-center"
+              style="margin-bottom: 15px"
+            >
+              <h3
+                class="flex-fill"
+                style="margin-bottom: 0px; color: rgb(0, 0, 0)"
+              >
+                Profile
+              </h3>
+              <pre id="json"></pre>
+              <a
+                class="btn btn-primary btn-sm d-none d-sm-inline-block"
+                onclick="downloadAsExcel()"
+                role="button"
+                href="#"
+                ><i class="fas fa-download fa-sm text-white-50"></i
+                >&nbsp;Generate Report</a
+              >
+            </div>
+            <div class="row mb-3">
+              <div class="col-lg-4">
+                <div class="card mb-3">
+                  <div class="card-body text-center shadow">
+                    <img
+                      class="rounded-circle mb-3 mt-4"
+                      src="/assets/img/dogs/johnDoe.jpg"
+                      width="70"
+                      height="70"
+                    />
+                    <div class="mb-3">
+                      <p style="color: rgb(0, 0, 0)" id="names"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="text-primary font-weight-bold m-0">
+                      Average level
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="small font-weight-bold">
+                      Body Temperature<span
+                        class="float-right"
+                        id="temp"
+                      ></span>
+                    </h4>
+                    
+                    <h4 class="small font-weight-bold">
+                      Blood Pressure<span
+                        class="float-right"
+                        id="pulse"
+                      ></span>
+                    </h4>
+                    
+                    <h4 class="small font-weight-bold">
+                      Oxygen Saturation<span
+                        class="float-right"
+                        id="oxysat"
+                      ></span>
+                    </h4>
+                    
+                    <h4 class="small font-weight-bold">
+                      Glucose level<span class="float-right" id="glu"></span>
+                    </h4>
+                    
+                    <h4 class="small font-weight-bold">
+                      Heart rate<span class="float-right" id="health"></span>
+                    </h4>
+                    <h4 class="small font-weight-bold">
+                      Cholestrol rate<span class="float-right" id="cholestral"></span>
+                    </h4>
+                    <h4 class="small font-weight-bold">
+                      Respiratory Rate<span class="float-right" id="bp"></span>
+                    </h4>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="row mb-3 d-none">
+                  <div class="col">
+                    <div class="card text-white bg-primary shadow">
+                      <div class="card-body">
+                        <div class="row mb-2">
+                          <div class="col">
+                            <p class="m-0">Peformance</p>
+                            <p class="m-0"><strong>65.2%</strong></p>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-rocket fa-2x"></i>
+                          </div>
+                        </div>
+                        <p class="text-white-50 small m-0">
+                          <i class="fas fa-arrow-up"></i>&nbsp;5% since last
+                          month
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card text-white bg-success shadow">
+                      <div class="card-body">
+                        <div class="row mb-2">
+                          <div class="col">
+                            <p class="m-0">Peformance</p>
+                            <p class="m-0"><strong>65.2%</strong></p>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-rocket fa-2x"></i>
+                          </div>
+                        </div>
+                        <p class="text-white-50 small m-0">
+                          <i class="fas fa-arrow-up"></i>&nbsp;5% since last
+                          month
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">
+                          User Details
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="username"
+                                  ><strong>EmployeeId</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="user name"
+                                  name="username"
+                                  id="empid"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="email"
+                                  ><strong>Email Address</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="email"
+                                  placeholder="user@example.com"
+                                  name="email"
+                                  id="email"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="first_name"
+                                  ><strong>First Name</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="John"
+                                  name="first_name"
+                                  id="fname"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="last_name"
+                                  ><strong>Last Name</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Doe"
+                                  name="last_name"
+                                  id="lname"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="first_name"
+                                  ><strong>Gender</strong><br /></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="John"
+                                  name="first_name"
+                                  id="gender"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="last_name"
+                                  ><strong>Age</strong><br /></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Doe"
+                                  name="last_name"
+                                  id="age"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                           <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="first_name"
+                                  ><strong>Height</strong><br /></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="John"
+                                  name="first_name"
+                                  id="height"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="last_name"
+                                  ><strong>Weight</strong><br /></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Doe"
+                                  name="last_name"
+                                  id="weight"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- <div class="card shadow">
+                      <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">
+                          Contact Settings
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <div class="form-group">
+                            <label for="address"><strong>Address</strong></label
+                            ><input
+                              class="form-control"
+                              type="text"
+                              placeholder="Sunset Blvd, 38"
+                              name="address"
+                              id="add"
+                              readonly
+                            />
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="city"><strong>City</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Los Angeles"
+                                  name="city"
+                                  id="city"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="country"
+                                  ><strong>Country</strong></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="USA"
+                                  name="country"
+                                  id="country"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                           <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="city"
+                                  ><strong>Mobile No</strong><br /></label
+                                ><input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Los Angeles"
+                                  name="city"
+                                  id="mob"
+                                  readonly
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow mb-5">
+              <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">Forum Settings</p>
+              </div>
+              <div class="card-body">
+                <div
+                  class="table-responsive table mt-2"
+                  id="dataTable"
+                  role="grid"
+                  aria-describedby="dataTable_info"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="border rounded d-inline scroll-to-top" href="#page-top"
+        ><i class="fas fa-angle-up"></i
+      ></a>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"
+    ></script>
+    <script src="/assets/client/profile.js"></script>
+  </body>
+</html>
